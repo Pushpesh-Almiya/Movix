@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { fetchDataFromApi } from "./utils/api";
 import { useSelector, useDispatch } from "react-redux";
 import { getApiConfiguration, getGenres } from "./store/slices/homeSlice";
+
 function App() {
   const dispatch = useDispatch();
   const { url } = useSelector((state) => state.home);
