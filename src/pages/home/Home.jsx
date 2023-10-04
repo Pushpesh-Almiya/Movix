@@ -5,6 +5,7 @@ function Home() {
   return (
     <>
       <HeroBanner/>
+      <div style={{height:1000}}></div>
     </>
   )
 }
