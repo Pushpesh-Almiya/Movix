@@ -17,15 +17,22 @@ function App() {
   const { url } = useSelector((state) => state.home);
   // console.log(url);
 
-  //API testing ....
-  const apiTesting = () => {
-    fetchDataFromApi("/movie/popular").then((res) => {
-      console.log(res);
-      dispatch(getApiConfiguration(res));
+
+  const fetchApiConfig = () => {
+    fetchDataFromApi("/configuration").then((res) => {
+      // console.log(res);
+
+      const url ={
+        //Image url according to TMDB documentation
+        backdrop:res.images.secure_base_url + "original",
+        poster:res.images.secure_base_url + "original",
+        profile:res.images.secure_base_url + "original",
+      }
+      dispatch(getApiConfiguration(url));
     });
   };
   useEffect(() => {
-    apiTesting();
+    fetchApiConfig();
   }, []);
   return (
     <>
