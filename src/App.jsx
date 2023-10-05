@@ -31,9 +31,27 @@ function App() {
       dispatch(getApiConfiguration(url));
     });
   };
+  const genresCall = async()=>{
+    let promises=[]
+    let endPoints =["tv","movie"]
+    let allGenres ={}
+
+    endPoints.forEach((url)=>{
+      promises.push(fetchDataFromApi(`/genre/${url}/list`))
+    })
+    const data = await Promise.all(promises);
+    // console.log(data)
+    data.map(({genres})=>{
+      return genres.map((item)=>(allGenres[item.id]=item))
+    })
+    dispatch(getGenres(allGenres))
+    // console.log(allGenres)
+  }
   useEffect(() => {
     fetchApiConfig();
+    genresCall()
   }, []);
+
   return (
     <>
       <BrowserRouter>
