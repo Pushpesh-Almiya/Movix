@@ -13,7 +13,7 @@ import dayjs from "dayjs";
 import Genres from "../genres/Genres";
 import { useNavigate } from "react-router-dom";
 
-function Carousel({ data, loading,endPoint }) {
+function Carousel({ data, loading,endPoint,title }) {
   // console.log(data)
   const navigate = useNavigate()
   //to get any div in DOM use useRef
@@ -50,6 +50,7 @@ function Carousel({ data, loading,endPoint }) {
   return (
     <div className="carousel">
       <ContentWrapper>
+        {title && <div className="carouselTitle">{title}</div>}
       <BsFillArrowLeftCircleFill
                     className="carouselLeftNav arrow"
                     onClick={() => navigation("left")}
