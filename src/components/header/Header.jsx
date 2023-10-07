@@ -4,7 +4,7 @@ import { SlMenu } from "react-icons/sl";
 import { VscChromeClose } from "react-icons/vsc";
 import logo from "../../assets/movix-logo.svg";
 import "./style.scss";
-import ContentWrapper from "../contentWrapper/contentWrapper";
+import ContentWrapper from "../contentWrapper/ContentWrapper";
 import { useLocation, useNavigate } from "react-router-dom";
 function Header() {
   const navigate = useNavigate();

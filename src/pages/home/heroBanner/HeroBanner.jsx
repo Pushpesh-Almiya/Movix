@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import useFetch from "../../../hooks/useFetch";
 import { useSelector } from "react-redux";
 import Img from "../../../components/lazyLoadImage/Img";
-import ContentWrapper from "../../../components/contentWrapper/contentWrapper";
+import ContentWrapper from "../../../components/contentWrapper/ContentWrapper";
 function HeroBanner() {
   const [background, setBackground]= useState('');
   const [query, setQuery]= useState('');
@@ -40,7 +40,7 @@ function HeroBanner() {
               type="text"
               placeholder="Search for a movie or tv show...." onChange={(e)=>setQuery(e.target.value)} onKeyUp={searchQuery}
             />
-            <button>Search</button>
+            <button onClick={()=> navigate(`/search/${query}`)}>Search</button>
           </div>
         </div>
       </ContentWrapper>
